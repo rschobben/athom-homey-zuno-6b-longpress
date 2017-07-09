@@ -1,0 +1,266 @@
+{
+	"id": "FGSD-002",
+	"name": {
+		"en": "Smoke Sensor (Z-Wave Plus)",
+		"nl": "Rookmelder (Z-Wave Plus)"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 3074,
+		"productId": [
+			4098
+		],
+		"learnmode": {
+			"image": "/drivers/FGSD-002/assets/learnmode.svg",
+			"instruction": {
+				"en": "Press the button on your Fibaro Smoke Sensor three times",
+				"nl": "Druk driemaal op de knop op de Fibaro Rookmelder"
+			}
+		},
+		"associationGroups": [
+			1
+		]
+	},
+	"class": "sensor",
+	"capabilities": [
+		"alarm_smoke",
+		"alarm_heat",
+		"measure_battery",
+		"measure_temperature"
+	],
+	"images": {
+		"large": "/drivers/FGSD-002/assets/images/large.png",
+		"small": "/drivers/FGSD-002/assets/images/small.png"
+	},
+	"settings": [
+		{
+			"id": "smoke_sensitivity",
+			"type": "dropdown",
+			"label": {
+				"en": "Smoke Sensitivity",
+				"nl": "Rook Gevoeligheid"
+			},
+			"value": "2",
+			"hint": {
+				"en": "Determine the sensitivity of the smoke alarm.\nIt is not recommended to change this value.",
+				"nl": "Bepaal de gevoeligheid van het rookalarm\nHet is niet aan te raden om deze waarde te veranderen."
+			},
+			"values": [
+				{
+					"id": "1",
+					"label": {
+						"en": "Low",
+						"nl": "Laag"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Middle",
+						"nl": "Middel"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "High",
+						"nl": "Hoog"
+					}
+				}
+			]
+		},
+		{
+			"id": "visual_notification",
+			"type": "dropdown",
+			"label": {
+				"en": "Visual Notification",
+				"nl": "Visuele Meldingen"
+			},
+			"value": "0",
+			"hint": {
+				"en": "Determine the behaviour of the LED.",
+				"nl": "Bepaal het gedrag van de LED."
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "No Notifications",
+						"nl": "Geen Meldingen"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Casing Opened",
+						"nl": "Behuizing Geopend"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Temperature too high",
+						"nl": "Temperatuur te hoog"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Casing Opened and Temperature too high",
+						"nl": "Behuizing Geopend en Temperatuur te hoog"
+					}
+				},
+				{
+					"id": "4",
+					"label": {
+						"en": "Lack of Z-Wave Range",
+						"nl": "Te weinig Z-Wave Bereik"
+					}
+				},
+				{
+					"id": "5",
+					"label": {
+						"en": "Casing Opened and Lack of Z-Wave Range",
+						"nl": "Behuizing Geopend en Te weinig Z-Wave Bereik"
+					}
+				},
+				{
+					"id": "6",
+					"label": {
+						"en": "Temperature too high and Lack of Z-Wave Range",
+						"nl": "Temperatuur te hoog en Te weinig Z-Wave Bereik"
+					}
+				},
+				{
+					"id": "7",
+					"label": {
+						"en": "All notifications above",
+						"nl": "Alle meldingen hierboven"
+					}
+				}
+			]
+		},
+		{
+			"id": "acoustic_notification",
+			"type": "dropdown",
+			"label": {
+				"en": "Acoutic Notification",
+				"nl": "Akoestische Meldingen"
+			},
+			"value": "0",
+			"hint": {
+				"en": "Determine the behaviour of the LED.",
+				"nl": "Bepaal het gedrag van de LED."
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "No Notifications",
+						"nl": "Geen Meldingen"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Casing Opened",
+						"nl": "Behuizing Geopend"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Temperature too high",
+						"nl": "Temperatuur te hoog"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Casing Opened and Temperature too high",
+						"nl": "Behuizing Geopend en Temperatuur te hoog"
+					}
+				},
+				{
+					"id": "4",
+					"label": {
+						"en": "Lack of Z-Wave Range",
+						"nl": "Te weinig Z-Wave Bereik"
+					}
+				},
+				{
+					"id": "5",
+					"label": {
+						"en": "Casing Opened and Lack of Z-Wave Range",
+						"nl": "Behuizing Geopend en Te weinig Z-Wave Bereik"
+					}
+				},
+				{
+					"id": "6",
+					"label": {
+						"en": "Temperature too high and Lack of Z-Wave Range",
+						"nl": "Temperatuur te hoog en Te weinig Z-Wave Bereik"
+					}
+				},
+				{
+					"id": "7",
+					"label": {
+						"en": "All notifications above",
+						"nl": "Alle meldingen hierboven"
+					}
+				}
+			]
+		},
+		{
+			"id": "temperature_report_interval",
+			"type": "number",
+			"label": {
+				"en": "Temperature report interval",
+				"nl": "Temperatuur rapportage interval"
+			},
+			"value": 1,
+			"attr": {
+				"min": 0,
+				"max": 8640
+			},
+			"hint": {
+				"en": "Time interval (in seconds, multiplied by 10) between temperature reports. Only relevant in battery mode.\nRange: 1 – 8640 (10s - 24h)\n0 = Not being send.",
+				"nl": "Tijdsinterval (in seconden, vermenigvuldigd met 10) tussen temperatuur verzendingen. Alleen relevant in batterij modus\nBereik: 1 - 8640 (10s - 24h)\n0 = Niks verzonden"
+			}
+		},
+		{
+			"id": "temperature_report_hysteresis",
+			"type": "number",
+			"label": {
+				"en": "Temperature report hysteresis",
+				"nl": "Temperature verzending hysteresis"
+			},
+			"value": 10,
+			"attr": {
+				"min": 1,
+				"max": 100
+			},
+			"hint": {
+				"en": "Determine how much the temperature needs to change (devided by 10) before the value is being send.\nRange: 1 – 100 (0.1 - 10 degree)",
+				"nl": "Bepaal hoeveel graden er moet zijn veranderd (gedeeld door 10) voor de waarde word verzonden.\nBereik: 1 - 100 (0,1 = 10 graden)"
+			}
+		},
+		{
+			"id": "temperature_alarm_treshold",
+			"type": "number",
+			"label": {
+				"en": "Temperature alarm threshold",
+				"nl": "Temperatuur alarm drempel"
+			},
+			"value": 55,
+			"attr": {
+				"min": 1,
+				"max": 100
+			},
+			"hint": {
+				"en": "Determine the temperature when alarm gets triggered.\nRange: 1 – 100",
+				"nl": "Bepaal de temperatuur wanneer het alarm activeerd.\nBereik: 1 - 100"
+			}
+		}
+	]
+}

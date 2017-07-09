@@ -1,0 +1,23 @@
+{
+  "name": "nl.schobben.zuno",
+  "version": "1.0.0",
+  "description": "This app adds support for ZUNO devices in Homey",
+  "main": "app.js",
+  "dependencies": {
+    "homey-log": "^1.0.2",
+    "homey-zwavedriver": "git+https://github.com/athombv/node-homey-zwavedriver.git",
+    "tinycolor2": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+		"run": "homeyConfig compose && athom project --run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/athombv/nl.schobben.zuno.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/athombv/nl.schobben.zuno3readme"
+}

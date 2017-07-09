@@ -1,0 +1,734 @@
+{
+	"id": "FGMS-001-PLUS",
+	"name": {
+		"en": "Motion Sensor (Z-Wave Plus)",
+		"nl": "Bewegingssensor (Z-Wave Plus)"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 2049,
+		"productId": [
+			4097,
+			8193,
+			12289
+		],
+		"learnmode": {
+			"image": "/drivers/FGMS-001-PLUS/assets/learnmode.svg",
+			"instruction": {
+				"en": "Press the button on your Fibaro Motion Sensor three times",
+				"nl": "Druk driemaal op de knop op de Fibaro Bewegingssensor"
+			}
+		},
+		"associationGroups": [
+			1
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "Lifeline - report group. Homey ID by default. It is not recommended to change this group.",
+					"nl": "Lifeline - rapportage groep. Homey ID als standaard waarde. Het is niet aanbevolen om deze groep aan te passen."
+				}
+			},
+			"2": {
+				"hint": {
+					"en": "Trigger: Motion alarm - association group, command depends on the configuration. Add Z-wave ID of relay devices.",
+					"nl": "Trigger: Bewegingsalarm - associatie groep, commando is afhankelijk van de configuratie. Voeg het Z-wave ID van het te koppelen apparaat toe."
+				}
+			},
+			"3": {
+				"hint": {
+					"en": "Trigger: Tamper alarm - association group. Add Z-wave ID of relay devices.",
+					"nl": "Trigger: Sabotagealarm- associatie groep. Voeg het Z-wave ID van het te koppelen apparaat toe."
+				}
+			},
+			"4": {
+				"hint": {
+					"en": "Trigger: Motion alarm ZW3 - association group for ZW3 backward compatibility. Add Z-wave ID of relay devices.",
+					"nl": "Trigger: Bewegingsalarm - associatie groep voor ZW3 backward compatibility. Voeg het Z-wave ID van het te koppelen apparaat toe."
+				}
+			},
+			"5": {
+				"hint": {
+					"en": "Trigger: Tamper alarm ZW3 - association group for ZW3 backward compatibility. Add Z-wave ID of relay devices.",
+					"nl": "Trigger: Sabotagealarm - associatie groep voor ZW3 backward compatibility. Voeg het Z-wave ID van het te koppelen apparaat toe."
+				}
+			}
+		}
+	},
+	"class": "sensor",
+	"capabilities": [
+		"alarm_motion",
+		"measure_temperature",
+		"measure_luminance",
+		"measure_battery",
+		"alarm_tamper",
+		"alarm_battery"
+	],
+	"images": {
+		"large": "/drivers/FGMS-001-PLUS/assets/images/large.png",
+		"small": "/drivers/FGMS-001-PLUS/assets/images/small.png"
+	},
+	"settings": [
+		{
+			"id": "motion_sensor_sensitivity",
+			"type": "number",
+			"label": {
+				"en": "Motion sensor sensitivity",
+				"nl": "Bewegingssensor gevoeligheid"
+			},
+			"value": 15,
+			"attr": {
+				"min": 8,
+				"max": 255
+			},
+			"hint": {
+				"en": "The lower the value, the more sensitive the PIR sensor. Range: 8 - 255, default value: 15.",
+				"nl": "Een lagere waarde betekent een gevoeligere sensor. Bereik: 8 - 255, standaard waarde: 15."
+			}
+		},
+		{
+			"id": "motion_sensor_blindtime",
+			"type": "number",
+			"label": {
+				"en": "Motion sensor blindtime",
+				"nl": "Bewegingssensor blindtime"
+			},
+			"value": 3,
+			"attr": {
+				"min": 0,
+				"max": 15
+			},
+			"hint": {
+				"en": "Period of time through which the PIR sensor is “blind” (insensitive) to motion. Higher values will lead to better battery life. Range: 0 - 15 (0.5s - 8s), default value: 3.",
+				"nl": "Periode na detecteren van beweging gedurende de sensor ongevoelig is voor nieuwe bewegingsdetectie. Hogere waardes zorgen voor minder batterijverbruik. Bereik: 0 - 15 (0,5s - 8s), standaard waarde: 3."
+			}
+		},
+		{
+			"id": "motion_cancellation_delay",
+			"type": "number",
+			"label": {
+				"en": "Motion alarm cancellation delay (seconds)",
+				"nl": "Bewegingsalarm annuleringsperiode (seconden)"
+			},
+			"value": 30,
+			"attr": {
+				"min": 1,
+				"max": 32767
+			},
+			"hint": {
+				"en": "The time (in seconds after last detection) after which the Motion alarm will be cancelled. Range: 1 - 32767, default value: 30.",
+				"nl": "De tijd (in seconden na laatste bewegingsdetectie) waarna het Bewegingsalarm zal worden geannuleerd. Bereik: 1 - 32767, standaard value: 30."
+			}
+		},
+		{
+			"id": "day_night",
+			"type": "dropdown",
+			"label": {
+				"en": "Motion operating mode",
+				"nl": "Bewegingsalarm functie"
+			},
+			"value": "0",
+			"hint": {
+				"en": "Determine when the motion should be active. Default value: Always Active.",
+				"nl": "Bepaal wanneer het bewegingsalarm actief moet zijn. Standaard waarde: Altijd Actief."
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Always Active",
+						"nl": "Altijd Actief"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Only During Day",
+						"nl": "Alleen Overdag"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Only During Night",
+						"nl": "Alleen Snachts"
+					}
+				}
+			]
+		},
+		{
+			"id": "day_night_treshold",
+			"type": "number",
+			"value": 200,
+			"attr": {
+				"min": 1,
+				"max": 32767
+			},
+			"label": {
+				"en": "Motion alarm illumination threshold",
+				"nl": "Bewegings alarm lichtsterkte drempel"
+			},
+			"hint": {
+				"en": "Determine on which lux level it is either day or night. Range: 1 - 32767, default value: 200.",
+				"nl": "Bepaal bij hoeveel lux het schakelt tussen dag of nacht. Bereik: 1 - 32767, standaard waarde: 200."
+			}
+		},
+		{
+			"id": "basic_command_config",
+			"type": "dropdown",
+			"label": {
+				"en": "Motion detection command",
+				"nl": "Bewegingsdetectie commando"
+			},
+			"value": "0",
+			"hint": {
+				"en": "Determine the command sent to 2nd association group (assigned to PIR sensor). The values of on and off commands may be modified by the following parameters. Default value: on and off.",
+				"nl": "Bepaal het commando dat naar de 2e association group wordt gestuurd (toegekend aan de PIR). De waarden van het aan of uit commando kan in onderstaande parameters aangepast worden. Standaard waarde: aan en uit."
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "on and off",
+						"nl": "aan en uit"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "only on",
+						"nl": "alleen aan"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "only off",
+						"nl": "alleen uit"
+					}
+				}
+			]
+		},
+		{
+			"id": "basic_on_command",
+			"type": "number",
+			"value": 255,
+			"attr": {
+				"min": 0,
+				"max": 255
+			},
+			"label": {
+				"en": "Motion detection on command",
+				"nl": "Bewegingsdetectie aan commando"
+			},
+			"hint": {
+				"en": "The on command sent at the moment of motion detection. Further motion detection, during the cancellation time, will not result in sending additional commands. Range: 0 (off), 1 - 99 (dim), 255 (on). Default value: 255 (on).",
+				"nl": "Het aan commando dat wordt verstuurd tijdens bewegingsalarm. Bewegingsalarmen tijdens de annuleringsperiode resulteren niet in extra aan commando's. Bereik: 0 (uit), 1 - 99 (dim), 255 (aan). Standaard waarde: 255 (aan)."
+			}
+		},
+		{
+			"id": "basic_off_command",
+			"type": "number",
+			"value": 0,
+			"attr": {
+				"min": 0,
+				"max": 255
+			},
+			"label": {
+				"en": "Motion detection off command",
+				"nl": "Bewegingsdetectie uit commando"
+			},
+			"hint": {
+				"en": "The off command sent at the moment of motion alarm cancellation, after the cancellation delay time. Range: 0 (off), 1 - 99 (dim), 255 (on). Default value: 0 (off).",
+				"nl": "Het uit commando dat wordt verstuurd na de bewegingsalarm annuleringsperiode. Bereik: 0 (off), 1 - 99 (dim), 255 (on). Standaard waarde: 0 (uit)."
+			}
+		},
+		{
+			"id": "tamper_sensitivity",
+			"type": "number",
+			"value": 20,
+			"attr": {
+				"min": 0,
+				"max": 121
+			},
+			"label": {
+				"en": "Tamper sensitivity",
+				"nl": "Trilling gevoeligheid"
+			},
+			"hint": {
+				"en": "Sets the amount of movement is needed before triggered.Range: 0 (off), 1 (0.08G) - 121 (2G). Default value: 20.",
+				"nl": "Zet hoeveel beweging nodig is voor het activeerd. Bereik: 0 (uit), 1 (0.08G) - 121 (2G). Standaard waarde: 20."
+			}
+		},
+		{
+			"id": "tamper_operating_mode",
+			"type": "dropdown",
+			"label": {
+				"en": "Tamper operation mode",
+				"nl": "Trilling operatie modus"
+			},
+			"value": "0",
+			"hint": {
+				"en": "Determine the behaviour of tamper. Default value: tamper only.",
+				"nl": "Bepaal het gedrag van het trillingsalarm. Standaard waarde: alleen sabotage alarm."
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Tamper only",
+						"nl": "Alleen sabotage alarm"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Tamper and Earthquake detection",
+						"nl": "Sabotage en Aardbeving detectie."
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Tamper and Orientation report.",
+						"nl": "Sabotage en Orienatie reportage."
+					}
+				}
+			]
+		},
+		{
+			"id": "tamper_cancellation_delay",
+			"type": "number",
+			"value": 30,
+			"attr": {
+				"min": 1,
+				"max": 32767
+			},
+			"label": {
+				"en": "Tamper alarm cancellation delay (seconds)",
+				"nl": "Trillingsalarm annulering periode (seconden)"
+			},
+			"hint": {
+				"en": "Another tampering detected during the cancellation delay will not extend the delay. Range: 1 - 32767, default value: 30.",
+				"nl": "Nog een trilling binnen deze periode zal de periode niet verlengen. Bereik: 1 - 32767, standaard waarde: 30."
+			}
+		},
+		{
+			"id": "tamper_cancellation",
+			"type": "checkbox",
+			"value": true,
+			"label": {
+				"en": "Tamper cancellation report",
+				"nl": "Trillingsalarm annulering reportage"
+			},
+			"hint": {
+				"en": "Must the tamper alarm turn off automatically? Default value: true.",
+				"nl": "Moet het trillingsalarm automatisch uit gaan? Standaard waarde: true."
+			}
+		},
+		{
+			"id": "illumination_report_threshold",
+			"type": "number",
+			"label": {
+				"en": "Illumination report threshold (lux)",
+				"nl": "Lichtsterkte rapportage drempel (lux)"
+			},
+			"value": 200,
+			"attr": {
+				"min": 0,
+				"max": 32767
+			},
+			"hint": {
+				"en": "Sets how many lux needs to change before the value is being send to Homey. Range: 0 (off), 1 - 32767, default value: 200.",
+				"nl": "Zet hoeveel lux er moet veranderen voordat de waarde naar Homey word verstuurd. Bereik: 0 (uit), 1 - 32767, standaard waarde: 200."
+			}
+		},
+		{
+			"id": "illumination_report_interval",
+			"type": "number",
+			"label": {
+				"en": "Illumination report interval (seconds)",
+				"nl": "Lichtsterkte rapportage interval (seconden)"
+			},
+			"value": 3600,
+			"attr": {
+				"min": 0,
+				"max": 32767
+			},
+			"hint": {
+				"en": "Determine the time between illumination reports to Homey, even when value has not changed. Range: 0 (off), 1 - 32767, default value: 3600.",
+				"nl": "Bepaal wanneer de lichtsterkte waarde naar Homey word verzonden, ook als de waarde niet veranderd is. Bereik: 0 (uit), 1 - 32767, standaard waarde: 3600."
+			}
+		},
+		{
+			"id": "temperature_report_threshold",
+			"type": "number",
+			"label": {
+				"en": "Temperature report threshold (value times 0.1ºC)",
+				"nl": "Temperatuur rapportage grens (waarde keer 0,1ºC)"
+			},
+			"value": 10,
+			"attr": {
+				"min": 0,
+				"max": 255
+			},
+			"hint": {
+				"en": "How much must the temperature change before being send to Homey. Range: 0 (off), 1 - 255, default value: 10.",
+				"nl": "Hoeveel moet de temperature veranderen voordat de waarde naar Homey wordt verstuurd. Bereik: 0 (off), 1 - 255, standaard waarde: 10."
+			}
+		},
+		{
+			"id": "temperature_measuring_interval",
+			"type": "number",
+			"label": {
+				"en": "Temperature measuring interval (seconds)",
+				"nl": "Temperatuur meet interval (seconden)"
+			},
+			"value": 900,
+			"attr": {
+				"min": 0,
+				"max": 32767
+			},
+			"hint": {
+				"en": "Determine how often the temperature will be measured\nRange: 0, 1 - 32767\n0 = Reports not being send.",
+				"nl": "Bepaal hoe vaak de temperatuur wordt gemeten\nBereik: 0, 1 - 32767\n0 = Er word niks verzonden."
+			}
+		},
+		{
+			"id": "temperature_report_interval",
+			"type": "number",
+			"label": {
+				"en": "Temperature report interval (seconds)",
+				"nl": "Temperatuur rapportage interval (seconden)"
+			},
+			"value": 0,
+			"attr": {
+				"min": 0,
+				"max": 32767
+			},
+			"hint": {
+				"en": "Determine how often the temperature will be sent to Homey, even when the value has not changed.\nRange: 0, 1 - 32767\n0 = Reports not being send.",
+				"nl": "Bepaal wanneer de temperatuur naar Homey word verstuurd, ook als de waarde niet is veranderd\nBereik: 0, 1 - 32767\n0 = Er word nisk verzonden."
+			}
+		},
+		{
+			"id": "temperature_offset",
+			"type": "number",
+			"label": {
+				"en": "Temperature offset (value times 0.1ºC)",
+				"nl": "Temperatuur correctie (waarde keer 0,1ºC)"
+			},
+			"value": 0,
+			"attr": {
+				"min": -1000,
+				"max": 1000
+			},
+			"hint": {
+				"en": "The value to be added to the measured temperature. Range: -1000 - 1000, default value: 0.",
+				"nl": "De waarde die wordt toegevoegd aan de gemeten temperatuur.Bereik: -1000 - 1000, standaard waarde: 0."
+			}
+		},
+		{
+			"id": "led_signaling_mode",
+			"type": "dropdown",
+			"label": {
+				"en": "LED light mode",
+				"nl": "LED licht modus"
+			},
+			"value": "10",
+			"hint": {
+				"en": "Determine the way in which the LED behaves after motion has been detected.\n*1 = 1x Long blink\n*2 = Long blink and a short blink for every motion detected\n*3 = Long blink and blinks twice for every motion detected\nDefault value: colour depends on the temperature *2.",
+				"nl": "Bepaald het gedrag van de LED wanneer beweging is gedetecteerd.\n*1 = 1x Lange knipper\n*2 = Lange knipper en knippert bij elke bewegingsdetectie\n*3 = Lange knipper en knippert 2x bij elke bewegingsdetectie\nStandaard waarde: kleur op basis van de temperatuur *2."
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Inactive",
+						"nl": "Inactief"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Colour depends on the temperature *1",
+						"nl": "Kleur op basis van de temperatuur *1"
+					}
+				},
+				{
+					"id": "10",
+					"label": {
+						"en": "Colour depends on the temperature *2",
+						"nl": "Kleur op basis van de temperatuur *2"
+					}
+				},
+				{
+					"id": "19",
+					"label": {
+						"en": "Colour depends on the temperature *3",
+						"nl": "Kleur op basis van de temperatuur *3"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Flashlight mode - 10 seconds",
+						"nl": "Zaklamp modus - 10 seconden"
+					}
+				},
+				{
+					"id": "11",
+					"label": {
+						"en": "Flashlight mode (10 seconds, extends every motion)",
+						"nl": "Zaklamp modus (10 seconden, langer met elke beweging)"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "White *1",
+						"nl": "Wit *1"
+					}
+				},
+				{
+					"id": "12",
+					"label": {
+						"en": "White *2",
+						"nl": "Wit *2"
+					}
+				},
+				{
+					"id": "20",
+					"label": {
+						"en": "White *3",
+						"nl": "Wit *3"
+					}
+				},
+				{
+					"id": "4",
+					"label": {
+						"en": "Red *1",
+						"nl": "Rood *1"
+					}
+				},
+				{
+					"id": "13",
+					"label": {
+						"en": "Red *2",
+						"nl": "Rood *2"
+					}
+				},
+				{
+					"id": "21",
+					"label": {
+						"en": "Red *3",
+						"nl": "Rood *3"
+					}
+				},
+				{
+					"id": "5",
+					"label": {
+						"en": "Green *1",
+						"nl": "Groen *1"
+					}
+				},
+				{
+					"id": "14",
+					"label": {
+						"en": "Green *2",
+						"nl": "Groen *2"
+					}
+				},
+				{
+					"id": "22",
+					"label": {
+						"en": "Green *3",
+						"nl": "Groen *3"
+					}
+				},
+				{
+					"id": "6",
+					"label": {
+						"en": "Blue *1",
+						"nl": "Blauw *1"
+					}
+				},
+				{
+					"id": "15",
+					"label": {
+						"en": "Blue *2",
+						"nl": "Blauw *2"
+					}
+				},
+				{
+					"id": "23",
+					"label": {
+						"en": "Blue *3",
+						"nl": "Blauw *3"
+					}
+				},
+				{
+					"id": "7",
+					"label": {
+						"en": "Yellow *1",
+						"nl": "Geel *1"
+					}
+				},
+				{
+					"id": "16",
+					"label": {
+						"en": "Yellow *2",
+						"nl": "Geel *2"
+					}
+				},
+				{
+					"id": "24",
+					"label": {
+						"en": "Yellow *3",
+						"nl": "Geel *3"
+					}
+				},
+				{
+					"id": "8",
+					"label": {
+						"en": "Cyan *1",
+						"nl": "Cyaan *1"
+					}
+				},
+				{
+					"id": "17",
+					"label": {
+						"en": "Cyan *2",
+						"nl": "Cyaan *2"
+					}
+				},
+				{
+					"id": "25",
+					"label": {
+						"en": "Cyan *3",
+						"nl": "Cyaan *3"
+					}
+				},
+				{
+					"id": "9",
+					"label": {
+						"en": "Magenta *1",
+						"nl": "Magenta *1"
+					}
+				},
+				{
+					"id": "18",
+					"label": {
+						"en": "Magenta *2",
+						"nl": "Magenta *2"
+					}
+				},
+				{
+					"id": "26",
+					"label": {
+						"en": "Magenta *3",
+						"nl": "Magenta *3"
+					}
+				}
+			]
+		},
+		{
+			"id": "led_brightness",
+			"type": "number",
+			"label": {
+				"en": "LED brightness (percentage)",
+				"nl": "LED helderheid (in procenten)"
+			},
+			"value": 50,
+			"attr": {
+				"min": 0,
+				"max": 100
+			},
+			"hint": {
+				"en": "Determine the brightness of LED when indicating motion detection. 0 = Determined by ambient brightness. Range: 0 - 100, default value: 50.",
+				"nl": "Bepaal de helderheid van de LED wanneer beweging wordt gedetecteerd. 0 = Bepaald door de omgevingslichtsterkte. Bereik: 0 - 100, standaard waarde: 50."
+			}
+		},
+		{
+			"id": "led_ambient_1",
+			"type": "number",
+			"label": {
+				"en": "Ambient lux to set LED brightness to 1%",
+				"nl": "Omgevings lux waar LED helderheid 1% is"
+			},
+			"value": 100,
+			"attr": {
+				"min": 0,
+				"max": 32766
+			},
+			"hint": {
+				"en": "The parameter is only relevant when the parameter LED brightness is set to 0, and must be below the value of Ambient lux 100%. Range: 0 - 32766, default value: 100.",
+				"nl": "Deze parameter is alleen relevant wanneer de parameter LED helderheid op 0 staat, en moet onder de waarde van Omgevings lux 100% zijn. Bereik: 0 - 32766, standaard waarde: 100."
+			}
+		},
+		{
+			"id": "led_ambient_100",
+			"type": "number",
+			"label": {
+				"en": "Ambient lux to set LED brightness to 100%",
+				"nl": "Omgevings lux waar LED helderheid 100% is"
+			},
+			"value": 1000,
+			"attr": {
+				"min": 1,
+				"max": 32767
+			},
+			"hint": {
+				"en": "The parameter is relevant only when the parameter LED brightness is set to 0, and must be above the value of Ambient lux 1%. Range: 1 - 32767, default value: 1000.",
+				"nl": "Deze parameter is alleen relevant wanneer de parameter LED helderheid op 0 staat, en moet boven de waarde van Omgevings lux 1% zijn. Bereik: 1 - 32767, standaard waarde: 1000."
+			}
+		},
+		{
+			"id": "temperature_blue",
+			"type": "number",
+			"label": {
+				"en": "Temperature for blue LED (°C)",
+				"nl": "Temperatuur voor blauwe LED (°C)"
+			},
+			"value": 18,
+			"attr": {
+				"min": 0,
+				"max": 254
+			},
+			"hint": {
+				"en": "The parameter is relevant only when LED signaling mode is set to 'depends on temperature'. Any temperature at or below this value will set the LED to blue, above this value it will gradually change to red. Range: 0 - 254, default value: 18.",
+				"nl": "Deze parameter is alleen relevant wanneer LED kleur modus staat ingesteld op 'op basis van temperatuur'. Als de temperatuur lager of gelijk aan deze waarde is licht de LED blauw op, boven deze waarde wordt de LED geleidelijk roder. Bereik: 0 - 254, standaard waarde: 18."
+			}
+		},
+		{
+			"id": "temperature_red",
+			"type": "number",
+			"label": {
+				"en": "Temperature for red LED (°C)",
+				"nl": "Temperatuur voor rode LED (°C)"
+			},
+			"value": 28,
+			"attr": {
+				"min": 1,
+				"max": 255
+			},
+			"hint": {
+				"en": "The parameter is relevant only when LED signaling mode is set to 'depends on temperature'.  Any temperature at or above this value will set the LED to red, below this value it will gradually change to blue. Range: 1 - 255, default value: 28.",
+				"nl": "Deze parameter is alleen relevant wanneer LED kleur modus staat ingesteld op 'op basis van temperatuur'. Als de temperatuur hoger of gelijk aan deze waarde is licht de LED rood op, onder deze waarde wordt de LED geleidelijk blauwer. Bereik: 1 - 255, standaard waarde: 28."
+			}
+		},
+		{
+			"id": "led_indicating_tamper_alarm",
+			"type": "checkbox",
+			"label": {
+				"en": "LED indicating tamper alarm",
+				"nl": "LED geeft trillingsalarm aan"
+			},
+			"value": true,
+			"hint": {
+				"en": "LED alarm (police car resemblance) active or not. Default value: true.",
+				"nl": "LED actief bij trillingsalarm. Standaard waarde: true."
+			}
+		}
+	]
+}

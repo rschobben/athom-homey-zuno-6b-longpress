@@ -1,0 +1,210 @@
+[
+	{
+		"id": "RGBW_input_on",
+		"title": {
+			"en": "In-/output turned on",
+			"nl": "In-/uitgang aan geschakeld"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGRGBWM-441"
+			},
+			{
+				"name": "input",
+				"type": "dropdown",
+				"values": [
+					{
+						"id": "1",
+						"label": {
+							"en": "Input 1",
+							"nl": "Ingang 1"
+						}
+					},
+					{
+						"id": "2",
+						"label": {
+							"en": "Input 2",
+							"nl": "Ingang 2"
+						}
+					},
+					{
+						"id": "3",
+						"label": {
+							"en": "Input 3",
+							"nl": "Ingang 3"
+						}
+					},
+					{
+						"id": "4",
+						"label": {
+							"en": "Input 4",
+							"nl": "Ingang 4"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "RGBW_input_off",
+		"title": {
+			"en": "In-/output turned off",
+			"nl": "In-/uitgang uit geschakeld"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGRGBWM-441"
+			},
+			{
+				"name": "input",
+				"type": "dropdown",
+				"values": [
+					{
+						"id": "1",
+						"label": {
+							"en": "Input 1",
+							"nl": "Ingang 1"
+						}
+					},
+					{
+						"id": "2",
+						"label": {
+							"en": "Input 2",
+							"nl": "Ingang 2"
+						}
+					},
+					{
+						"id": "3",
+						"label": {
+							"en": "Input 3",
+							"nl": "Ingang 3"
+						}
+					},
+					{
+						"id": "4",
+						"label": {
+							"en": "Input 4",
+							"nl": "Ingang 4"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "RGBW_volt_input_1",
+		"title": {
+			"en": "Voltage input 1 changed",
+			"nl": "Voltage ingang 1 veranderd"
+		},
+		"hint": {
+			"en": "This will only trigger if the input type is set to analog",
+			"nl": "Dit zal alleen werken wanneer het ingangtype staat ingesteld op analoog"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGRGBWM-441"
+			}
+		],
+		"tokens": [
+			{
+				"name": "volt",
+				"type": "number",
+				"title": {
+					"en": "Volt"
+				},
+				"example": 5
+			}
+		]
+	},
+	{
+		"id": "RGBW_volt_input_2",
+		"title": {
+			"en": "Voltage input 2 changed",
+			"nl": "Voltage ingang 2 veranderd"
+		},
+		"hint": {
+			"en": "This will only trigger if the input type is set to analog",
+			"nl": "Dit zal alleen werken wanneer het ingangtype staat ingesteld op analoog"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGRGBWM-441"
+			}
+		],
+		"tokens": [
+			{
+				"name": "volt",
+				"type": "number",
+				"title": {
+					"en": "Volt"
+				},
+				"example": 5
+			}
+		]
+	},
+	{
+		"id": "RGBW_volt_input_3",
+		"title": {
+			"en": "Voltage input 3 changed",
+			"nl": "Voltage ingang 3 veranderd"
+		},
+		"hint": {
+			"en": "This will only trigger if the input type is set to analog",
+			"nl": "Dit zal alleen werken wanneer het ingangtype staat ingesteld op analoog"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGRGBWM-441"
+			}
+		],
+		"tokens": [
+			{
+				"name": "volt",
+				"type": "number",
+				"title": {
+					"en": "Volt"
+				},
+				"example": 5
+			}
+		]
+	},
+	{
+		"id": "RGBW_volt_input_4",
+		"title": {
+			"en": "Voltage input 4 changed",
+			"nl": "Voltage ingang 4 veranderd"
+		},
+		"hint": {
+			"en": "This will only trigger if the input type is set to analog",
+			"nl": "Dit zal alleen werken wanneer het ingangtype staat ingesteld op analoog"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGRGBWM-441"
+			}
+		],
+		"tokens": [
+			{
+				"name": "volt",
+				"type": "number",
+				"title": {
+					"en": "Volt"
+				},
+				"example": 5
+			}
+		]
+	}
+]

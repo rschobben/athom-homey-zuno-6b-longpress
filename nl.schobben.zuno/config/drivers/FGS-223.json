@@ -1,0 +1,297 @@
+{
+	"id": "FGS-223",
+	"name": {
+		"en": "Double Switch 2",
+		"nl": "Dubbele Schakelaar 2"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 515,
+		"productId": [
+			4096
+		],
+		"learnmode": {
+			"image": "/drivers/FGS-223/assets/learnmode.svg",
+			"instruction": {
+				"en": "Press the button on, or the left switch (S1) of, your Fibaro Double Switch 2 three times",
+				"nl": "Druk driemaal op de knop op, of de linker schakelaar (S1) van, de Fibaro Dubbele Schakelaar 2"
+			}
+		},
+		"associationGroups": [
+			1
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "Controller group, not recommended to change this.",
+					"nl": "Controller groep, niet aanbevolen om dit te wijzigen."
+				}
+			},
+			"2": {
+				"hint": {
+					"en": "On/off signals of the left switch (S1).",
+					"nl": "Aan/uit signalen van de linker schakelaar (S1)."
+				}
+			},
+			"3": {
+				"hint": {
+					"en": "Dim signal of the left switch (S1) when pressed/switched 2x.",
+					"nl": "Dim signaal van de linker schakelaar (S1) wanneer 2x gedrukt/geschakeld."
+				}
+			},
+			"4": {
+				"hint": {
+					"en": "On/off signals of the right switch (S2).",
+					"nl": "Aan/uit signalen van de rechter schakelaar (S2)."
+				}
+			},
+			"5": {
+				"hint": {
+					"en": "Dim signal of the right switch (S2) when pressed/switched 2x.",
+					"nl": "Dim signaal van de rechter schakelaar (S2) wanneer 2x gedrukt/geschakeld."
+				}
+			}
+		},
+		"defaultConfiguration": [
+			{
+				"id": 28,
+				"size": 1,
+				"value": 15
+			},
+			{
+				"id": 29,
+				"size": 1,
+				"value": 15
+			}
+		],
+		"multiChannelNodes": {
+			"2": {
+				"class": "socket",
+				"capabilities": [
+					"onoff",
+					"measure_power",
+					"meter_power"
+				],
+				"icon": "/drivers/FGS-223/assets/icon.svg",
+				"name": {
+					"en": "Right Switch 2 (S2/Q2)",
+					"nl": "Rechter Schakelaar 2 (S2/Q2)"
+				},
+				"settings": []
+			}
+		}
+	},
+	"class": "socket",
+	"capabilities": [
+		"onoff",
+		"measure_power",
+		"meter_power",
+		"double_switch_2_custom_capability"
+	],
+	"images": {
+		"large": "/drivers/FGS-223/assets/images/large.png",
+		"small": "/drivers/FGS-223/assets/images/small.png"
+	},
+	"settings": [
+		{
+			"id": "save_state",
+			"type": "checkbox",
+			"label": {
+				"en": "Save Power-off State",
+				"nl": "Onthoud Stroom-eraf Status"
+			},
+			"hint": {
+				"en": "Saves its last state when power is disconnected",
+				"nl": "Onthoud zijn laatste status wanneer stroom eraf word gehaald"
+			},
+			"value": true
+		},
+		{
+			"id": "switch_type",
+			"type": "dropdown",
+			"label": {
+				"en": "Switch Type",
+				"nl": "Schakelaar Type"
+			},
+			"hint": {
+				"en": "What kind of switch is attached to the module.",
+				"nl": "Wat van type schakelaar is verbonden aan de module."
+			},
+			"value": "2",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Momentary Switch",
+						"nl": "Korstondige schakelaar"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Toggle Switch (Closed = On, Open = Off)",
+						"nl": "Tuimel Schakelaar (Dicht = Aan, Open = Uit)"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Toggle Switch (Changes State)",
+						"nl": "Tuimel Schakelaar (Veranderd Status)"
+					}
+				}
+			]
+		},
+		{
+			"id": "s1_power_report",
+			"type": "number",
+			"label": {
+				"en": "First Channel, Wattage Report Threshold",
+				"nl": "Eerste kanaal, Wattage Verzending Drempel"
+			},
+			"hint": {
+				"en": "How much must the Wattage change (in percentage) before the value is being send. Range: 0 (Off), 1 - 100",
+				"nl": "Hoeveel moet de Wattage zijn veranderd (in percentage) voor de waarde wordt verzonden. Bereik: 0 (Uit), 1 - 100"
+			},
+			"attr": {
+				"min": 0,
+				"max": 100
+			},
+			"value": 20
+		},
+		{
+			"id": "s1_power_report_interval",
+			"type": "number",
+			"label": {
+				"en": "First Channel, Wattage Report, Minimum Time",
+				"nl": "Eerste kanaal, Wattage Verzending, Minimale Tijd"
+			},
+			"hint": {
+				"en": "This amount of seconds must at least be past, before the value is being send. Range: 0 (Off), 1 - 120",
+				"nl": "Deze hoeveelheid seconden moeten voorbij zijn voor de waarde wordt verzonden. Bereik: 0 (Uit), 1 - 120"
+			},
+			"attr": {
+				"min": 0,
+				"max": 120
+			},
+			"value": 10
+		},
+		{
+			"id": "s1_kwh_report",
+			"type": "number",
+			"label": {
+				"en": "First Channel, kWh Report Threshold",
+				"nl": "Eerste kanaal, kWh Verzending Drempel"
+			},
+			"hint": {
+				"en": "How much must kWh change before the value is being send. Range: 0 (Off), 0.01 - 320",
+				"nl": "Hoeveel moet de kWh zijn veranderd voor de waarde wordt verzonden. Bereik: 0 (Uit), 0.01 - 320"
+			},
+			"attr": {
+				"min": 0,
+				"max": 320,
+				"step": 0.01
+			},
+			"value": 1
+		},
+		{
+			"id": "s2_power_report",
+			"type": "number",
+			"label": {
+				"en": "Second Channel, Wattage Report Threshold",
+				"nl": "Tweede Kanaal, Wattage Verzending Drempel"
+			},
+			"hint": {
+				"en": "How much must the Wattage change (in percentage) before the value is being send. Range: 0 (Off), 1 - 100",
+				"nl": "Hoeveel moet de Wattage zijn veranderd (in percentage) voor de waarde wordt verzonden. Bereik: 0 (Uit), 1 - 100"
+			},
+			"attr": {
+				"min": 0,
+				"max": 100
+			},
+			"value": 20
+		},
+		{
+			"id": "s2_power_report_interval",
+			"type": "number",
+			"label": {
+				"en": "Second Channel, Wattage Report, Minimum Time",
+				"nl": "Tweede Kanaal, Wattage Verzending, Minimale Tijd"
+			},
+			"hint": {
+				"en": "This amount of seconds must at least be past, before the value is being send. Range: 0 (Off), 1 - 120",
+				"nl": "Deze hoeveelheid seconden moeten voorbij zijn voor de waarde wordt verzonden. Bereik: 0 (Uit), 1 - 120"
+			},
+			"attr": {
+				"min": 0,
+				"max": 120
+			},
+			"value": 10
+		},
+		{
+			"id": "s2_kwh_report",
+			"type": "number",
+			"label": {
+				"en": "Second Channel, kWh Report Threshold",
+				"nl": "Tweede Kanaal, kWh Verzending Drempel"
+			},
+			"hint": {
+				"en": "How much must kWh change before the value is being send. Range: 0 (Off), 0.01 - 320",
+				"nl": "Hoeveel moet de kWh zijn veranderd voor de waarde wordt verzonden. Bereik: 0 (Uit), 0.01 - 320"
+			},
+			"attr": {
+				"min": 0,
+				"max": 320,
+				"step": 0.01
+			},
+			"value": 1
+		},
+		{
+			"id": "power_report_interval",
+			"type": "number",
+			"label": {
+				"en": "Wattage Report Interval",
+				"nl": "Wattage Verzending Interval"
+			},
+			"hint": {
+				"en": "Sets the interval (in seconds) when all values for Wattage gets send. Range: 0 (Off), 1 - 32000",
+				"nl": "Zet de interval (in seconden) wanneer alle waardes voor Wattage wordt verzonden. Bereik: 0 (Uit), 1 - 32000"
+			},
+			"attr": {
+				"min": 0,
+				"max": 32000
+			},
+			"value": 3600
+		},
+		{
+			"id": "energie_report_interval",
+			"type": "number",
+			"label": {
+				"en": "kWh Report Interval",
+				"nl": "kWh Verbruik Verzending Interval"
+			},
+			"hint": {
+				"en": "Sets the interval (in seconds) when all values for kWh gets send. Range: 0 (Off), 1 - 32000",
+				"nl": "Zet de interval (in seconden) wanneer alle waardes voor kWh wordt verzonden. Bereik: 0 (Uit), 1 - 32000"
+			},
+			"attr": {
+				"min": 0,
+				"max": 32000
+			},
+			"value": 3600
+		},
+		{
+			"id": "own_power",
+			"type": "checkbox",
+			"label": {
+				"en": "Include own power consumption",
+				"nl": "inclusief eigen verbruik"
+			},
+			"hint": {
+				"en": "Does the power consumption (kWh) of the module itself be added on the total amount?",
+				"nl": "Moet het energie verbruik (kWh) van de module zelf opgeteld worden bij de totale hoeveelheid?"
+			},
+			"value": false
+		}
+	]
+}

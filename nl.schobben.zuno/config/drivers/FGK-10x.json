@@ -1,0 +1,263 @@
+{
+	"id": "FGK-10x",
+	"name": {
+		"en": "Door/Window Sensor (Z-Wave Plus)",
+		"nl": "Deur/Raam Sensor (Z-Wave Plus)"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 1793,
+		"productId": [
+			4097
+		],
+		"learnmode": {
+			"image": "/drivers/FGK-10x/assets/learnmode.svg",
+			"instruction": {
+				"en": "Press the button on your Fibaro Door/Window Sensor three times",
+				"nl": "Druk driemaal op de knop op de Fibaro Deur/Raam Sensor"
+			}
+		},
+		"associationGroups": [
+			1
+		]
+	},
+	"class": "sensor",
+	"capabilities": [
+		"alarm_contact",
+		"measure_temperature",
+		"measure_battery"
+	],
+	"images": {
+		"large": "/drivers/FGK-10x/assets/images/large.png",
+		"small": "/drivers/FGK-10x/assets/images/small.png"
+	},
+	"settings": [
+		{
+			"id": "operation_mode",
+			"type": "radio",
+			"label": {
+				"en": "Operation Mode",
+				"nl": "Werking Modus"
+			},
+			"hint": {
+				"en": "Choose in what way the contact alarm is being activated",
+				"nl": "Kies in welke manier het contact alarm geactiveerd word"
+			},
+			"value": "0",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Door/Window Sensor",
+						"nl": "Deur/Raam Sensor"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "External Switch",
+						"nl": "Externe Schakelaar"
+					}
+				}
+			]
+		},
+		{
+			"id": "default_alarm_status",
+			"type": "radio",
+			"label": {
+				"en": "Default Alarm Status",
+				"nl": "Standaard Alarm Status"
+			},
+			"hint": {
+				"en": "When will the alarm be triggerd.",
+				"nl": "Wanneer word het alarm geactiveerd."
+			},
+			"value": "0",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Door/Window Opened",
+						"nl": "Deur/Raam Geopend"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Door/Window Closed",
+						"nl": "Deur/Raam Gesloten"
+					}
+				}
+			]
+		},
+		{
+			"id": "led_indication",
+			"type": "dropdown",
+			"label": {
+				"en": "LED Indication",
+				"nl": "LED Indicatie"
+			},
+			"hint": {
+				"en": "What will the LED indicate.",
+				"nl": "Wat zal de LED weergeven."
+			},
+			"value": "6",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "No Indication",
+						"nl": "Geen Indicatie"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Status Changed",
+						"nl": "Status Veranderd"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "On Wakeup",
+						"nl": "Wakker Worden"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Status Changed & On Wakeup",
+						"nl": "Status Veranderd & Wakker Worden"
+					}
+				},
+				{
+					"id": "4",
+					"label": {
+						"en": "Tamper",
+						"nl": "Sabotage"
+					}
+				},
+				{
+					"id": "5",
+					"label": {
+						"en": "Status Changed & Tamper",
+						"nl": "Status Veranderd & Sabotage"
+					}
+				},
+				{
+					"id": "6",
+					"label": {
+						"en": "On Wakeup & Tamper",
+						"nl": "Wakker Worden & Sabotage"
+					}
+				},
+				{
+					"id": "7",
+					"label": {
+						"en": "Status Changed & On Wakeup & Tamper",
+						"nl": "Status Veranderd & Wakker Worden & Sabotage"
+					}
+				}
+			]
+		},
+		{
+			"id": "tamper_alarm_cancellation",
+			"type": "number",
+			"label": {
+				"en": "Tamper Alarm Cancellation",
+				"nl": "Sabotage Alarm Annulering"
+			},
+			"hint": {
+				"en": "Sets the time (in seconds) when the tamper alarm goes off. Range: 0 - 32400",
+				"nl": "Zet de tijd (in seconden) wanneer het sabotage alarm uit gaat. Bereik: 0 - 32400"
+			},
+			"attr": {
+				"min": 0,
+				"max": 32400
+			},
+			"value": 5
+		},
+		{
+			"id": "tamper_cancellation",
+			"type": "checkbox",
+			"label": {
+				"en": "Tamper Cancellation",
+				"nl": "Sabotage Annulering"
+			},
+			"hint": {
+				"en": "Choose if the tamper alarm turns off",
+				"nl": "Kies of het sabotage alarm uit gaat"
+			},
+			"value": true
+		},
+		{
+			"id": "temperature_measure_interval",
+			"type": "number",
+			"label": {
+				"en": "Temperature Measure Interval",
+				"nl": "Temperatuur Meet Interval"
+			},
+			"hint": {
+				"en": "Sets the interval (in seconds) when the temperature gets measured. Range: 0, 5 - 32400, 0 = Off",
+				"nl": "Zet de interval (in seconden) wanneer de temperatuur gemeten word. Bereik: 0, 5 - 32400, 0 = Uit"
+			},
+			"attr": {
+				"min": 0,
+				"max": 32400
+			},
+			"value": 300
+		},
+		{
+			"id": "temperature_report_treshold",
+			"type": "number",
+			"label": {
+				"en": "Temperature Report Treshold",
+				"nl": "Temperatuur Verzend Drempel"
+			},
+			"hint": {
+				"en": "Set how much the temperature needs to change before the temperature is being send. Range: 0, 1 - 300, 10 = 1 Degree, 0 = Off",
+				"nl": "Zet hoeveel de temperatuur verander moet zijn voor de temperatuur verzonden word. Bereik: 0, 1 - 300, 10 = 1 Graden, 0 = Uit"
+			},
+			"attr": {
+				"min": 0,
+				"max": 300
+			},
+			"value": 10
+		},
+		{
+			"id": "temperature_report_interval",
+			"type": "number",
+			"label": {
+				"en": "Temperature Report Interval",
+				"nl": "Temperatuur Verzend Interval"
+			},
+			"hint": {
+				"en": "Sets the time (in seconds) when the temperature is being send. Range: 0, 5 - 32400, 0 = Off",
+				"nl": "Zet de tijd (in seconden) wanneer de temperatuur verzonden word. Bereik: 0, 5 - 32400, 0 = Uit"
+			},
+			"attr": {
+				"min": 0,
+				"max": 32400
+			},
+			"value": 0
+		},
+		{
+			"id": "temperature_offset",
+			"type": "number",
+			"label": {
+				"en": "Temperature Offset",
+				"nl": "Temperatuur Compensatie"
+			},
+			"hint": {
+				"en": "Sets how much the temperature needs to be offset. Range: -1000 - 1000",
+				"nl": "Zet hoeveel de temperatuur gecompenseerd moet worden. Bereik: -1000 - 1000"
+			},
+			"attr": {
+				"min": -1000,
+				"max": 1000
+			},
+			"value": 0
+		}
+	]
+}

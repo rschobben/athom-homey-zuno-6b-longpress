@@ -1,0 +1,226 @@
+[
+	{
+		"id": "RGBW_specific",
+		"title": {
+			"en": "Set specific brightness",
+			"nl": "Stel specifieke helderheid in"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGRGBWM-441"
+			},
+			{
+				"name": "color",
+				"type": "dropdown",
+				"values": [
+					{
+						"id": "r",
+						"label": {
+							"en": "Red output",
+							"nl": "Rode uitgang"
+						}
+					},
+					{
+						"id": "g",
+						"label": {
+							"en": "Green output",
+							"nl": "Groene uitgang"
+						}
+					},
+					{
+						"id": "b",
+						"label": {
+							"en": "Blue output",
+							"nl": "Blauwe uitgang"
+						}
+					},
+					{
+						"id": "w",
+						"label": {
+							"en": "White output",
+							"nl": "Witte uitgang"
+						}
+					}
+				]
+			},
+			{
+				"name": "brightness",
+				"type": "range",
+				"min": 0,
+				"max": 1,
+				"step": 0.01,
+				"label": "%",
+				"labelMultiplier": 100
+			}
+		]
+	},
+	{
+		"id": "RGBW_random",
+		"title": {
+			"en": "Choose random color",
+			"nl": "Kies willekeurige kleur"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGRGBWM-441"
+			},
+			{
+				"name": "range",
+				"type": "dropdown",
+				"values": [
+					{
+						"id": "rgb",
+						"label": {
+							"en": "RGB",
+							"nl": "RGB"
+						}
+					},
+					{
+						"id": "rgbw",
+						"label": {
+							"en": "RGB with white",
+							"nl": "RGB met wit"
+						}
+					},
+					{
+						"id": "rgb-w",
+						"label": {
+							"en": "RGB or white",
+							"nl": "RGB of wit"
+						}
+					},
+					{
+						"id": "r-g-b",
+						"label": {
+							"en": "Primary",
+							"nl": "Primair"
+						}
+					},
+					{
+						"id": "r-g-b-w",
+						"label": {
+							"en": "Primary or white",
+							"nl": "Primair of wit"
+						}
+					},
+					{
+						"id": "r-y-g-c-b-m",
+						"label": {
+							"en": "Primary/secundary",
+							"nl": "Primair/secundair"
+						}
+					},
+					{
+						"id": "r-y-g-c-b-m-w",
+						"label": {
+							"en": "Primary/secundary or white",
+							"nl": "Primair/secundair of wit"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "RGBW_animation",
+		"title": {
+			"en": "Choose an animation",
+			"nl": "Kies een animatie"
+		},
+		"hint": {
+			"en": "Animations only work if the mode type is set to RGB(W)",
+			"nl": "Animaties werken alleen als de mode type is ingesteld op RGB(W)"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGRGBWM-441"
+			},
+			{
+				"name": "animation",
+				"type": "dropdown",
+				"values": [
+					{
+						"id": "6",
+						"label": {
+							"en": "Fire",
+							"nl": "Vuur"
+						}
+					},
+					{
+						"id": "7",
+						"label": {
+							"en": "Storm/lightning",
+							"nl": "Storm/onweer"
+						}
+					},
+					{
+						"id": "8",
+						"label": {
+							"en": "Rainbow",
+							"nl": "Regenboog"
+						}
+					},
+					{
+						"id": "9",
+						"label": {
+							"en": "Aurora",
+							"nl": "Aurora"
+						}
+					},
+					{
+						"id": "10",
+						"label": {
+							"en": "Police",
+							"nl": "Politie"
+						}
+					},
+					{
+						"id": "11",
+						"label": {
+							"en": "Random animation",
+							"nl": "Willekeurige animatie"
+						}
+					},
+					{
+						"id": "1",
+						"label": {
+							"en": "Stop animation",
+							"nl": "Stop animatie"
+						}
+					},
+					{
+						"id": "0",
+						"label": {
+							"en": "Stop animation, back to previous state",
+							"nl": "Stop animatie, herstel vorige status"
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "FGRGBWM-441_reset_meter",
+		"title": {
+			"en": "Reset meter values",
+			"nl": "Meter waarden resetten"
+		},
+		"hint": {
+			"en": "Reset the accumulated power usage (kWh). Can not be reversed.",
+			"nl": "Reset de stroomverbruik (kWh) waarden. Kan niet ongedaan worden gemaakt."
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGRGBWM-441"
+			}
+		]
+	}
+]

@@ -1,0 +1,293 @@
+{
+  "id": "nl.schobben.zuno",
+  "name": {
+    "en": "Zuno"
+  },
+  "version": "0.0.1",
+  "compatibility": ">=1.1.9",
+  "description": {
+    "en": "ZUNO devices for Homey"
+  },
+  "category": [
+    "appliances",
+    "lights",
+    "security",
+    "climate"
+  ],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Roger Schobben",
+    "email": "roger@schobben.nl"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Roger Schobben",
+        "email": "roger@schobben.nl"
+      }
+    ]
+  },
+   "capabilities": {
+    "double_switch_2_custom_capability": {
+      "type": "boolean",
+      "title": {
+        "en": "My Boolean capability"
+      },
+      "getable": false,
+      "setable": false
+    }
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "ZUNO_scene1",
+        "title": {
+          "en": "Scene 1 activated",
+          "nl": "Scene 1 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene2",
+        "title": {
+          "en": "Scene 2 activated",
+          "nl": "Scene 2 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene3",
+        "title": {
+          "en": "Scene 3 activated",
+          "nl": "Scene 3 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene4",
+        "title": {
+          "en": "Scene 4 activated",
+          "nl": "Scene 4 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene5",
+        "title": {
+          "en": "Scene 5 activated",
+          "nl": "Scene 5 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene6",
+        "title": {
+          "en": "Scene 6 activated",
+          "nl": "Scene 6 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene7",
+        "title": {
+          "en": "Scene 7 activated",
+          "nl": "Scene 7 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene8",
+        "title": {
+          "en": "Scene 8 activated",
+          "nl": "Scene 8 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene9",
+        "title": {
+          "en": "Scene 9 activated",
+          "nl": "Scene 9 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene10",
+        "title": {
+          "en": "Scene 10 activated",
+          "nl": "Scene 10 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene11",
+        "title": {
+          "en": "Scene 11 activated",
+          "nl": "Scene 11 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  },
+	  {
+        "id": "ZUNO_scene12",
+        "title": {
+          "en": "Scene 12 activated",
+          "nl": "Scene 12 geactiveerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=ZUNO"
+          }
+        ]
+	  }
+	]
+  },
+  "drivers": [
+    {
+      "id": "ZUNO",
+      "name": {
+        "en": "ZUNO Arduino Board"
+      },
+      "zwave": {
+        "manufacturerId": 277,
+        "productTypeId": 272,
+        "productId": 1,
+        "learnmode": {
+          "image": "/drivers/ZUNO/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the button on your ZUNO three times",
+            "nl": "Druk driemaal op de knop op de ZUNO"
+          }
+        },
+        "associationGroups": [
+          3
+        ],
+        "defaultConfiguration": [
+          {
+            "id": 13,
+            "size": 1,
+            "value": 0
+          }
+        ]
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_generic.contact1"
+      ],
+      "capabilitiesOptions": {
+        "alarm_generic.contact1": {
+          "title": {
+            "en": "Input 1",
+            "nl": "Ingang 1"
+          }
+        }
+      },
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": []
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "alarm_generic.contact1"
+            ],
+            "options": {
+              "icons": {
+                "alarm_generic.contact1": "/drivers/ZUNO/assets/switch.svg"
+              },
+              "alarm_generic.contact1": {
+                "noblink": true,
+                "label": {
+                  "true": {
+                    "en": "Open",
+                    "nl": "Open"
+                  },
+                  "false": {
+                    "en": "Closed",
+                    "nl": "Gesloten"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "images": {
+        "large": "/drivers/ZUNO/assets/images/large.png",
+        "small": "/drivers/ZUNO/assets/images/small.png"
+      }
+    }
+  ]
+}

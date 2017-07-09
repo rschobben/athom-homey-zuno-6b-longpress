@@ -1,0 +1,145 @@
+{
+	"id": "FGS-221",
+	"name": {
+		"en": "Double Relay Switch",
+		"nl": "Dubbele Relais Schakelaar"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 512,
+		"productId": [
+			258,
+			259,
+			260,
+			261,
+			262,
+			263,
+			265,
+			4106,
+			12298
+		],
+		"learnmode": {
+			"image": "/drivers/FGS-221/assets/learnmode.svg",
+			"instruction": {
+				"en": "Press the button on your Fibaro Double Relay Switch three times",
+				"nl": "Druk driemaal op de knop op de Fibaro Dubbele Relais Schakelaar"
+			}
+		},
+		"associationGroups": [
+			3
+		],
+		"multiChannelNodes": {
+			"2": {
+				"class": "socket",
+				"capabilities": [
+					"onoff"
+				],
+				"icon": "/drivers/FGS-221/assets/icon-2.svg",
+				"name": {
+					"en": "Relay 2 (S2 & Q2)",
+					"nl": "Relais 2 (S2 & Q2)"
+				},
+				"settings": []
+			}
+		}
+	},
+	"class": "socket",
+	"capabilities": [
+		"onoff"
+	],
+	"images": {
+		"large": "/drivers/FGS-221/assets/images/large.png",
+		"small": "/drivers/FGS-221/assets/images/small.png"
+	},
+	"settings": [
+		{
+			"id": "auto_off",
+			"type": "checkbox",
+			"label": {
+				"en": "Auto-off Behaviour",
+				"nl": "Automatisch uit gedrag"
+			},
+			"hint": {
+				"en": "If enabled pressing the switch for the second time will immediately turn off the relays, when disabled they will only turn off automatically.",
+				"nl": "Als geactiveerd zullen de relais bij een tweede keer drukken meteen uitgaan, wanneer niet geactiveerd gaan de relais alleen automatisch uit. "
+			},
+			"value": false
+		},
+		{
+			"id": "auto_off_relay_1",
+			"type": "number",
+			"label": {
+				"en": "Auto-off Relay 1",
+				"nl": "Automatisch uit Relais 1"
+			},
+			"hint": {
+				"en": "Set the time Relay 1 will turn off automatically.\nRange: 0 (off), 1 (0.1s) - 65535 (2,5s)\nDefault: 0 (off)",
+				"nl": "Zet de tijd dat Relais 1 automatisch uit gaat.\nBereik: 0 (uit), 1 (0,1s) - 65535 (6553,5s)\nStandaard: 0 (uit)"
+			},
+			"attr": {
+				"min": 0,
+				"max": 65535
+			},
+			"value": 0
+		},
+		{
+			"id": "auto_off_relay_2",
+			"type": "number",
+			"label": {
+				"en": "Auto-off Relay 2",
+				"nl": "Automatisch uit Relais 2"
+			},
+			"hint": {
+				"en": "Set the time Relay 2 will turn off automatically.\nRange: 0 (off), 1 (0.1s) - 65535 (2,5s)\nDefault: 0 (off)",
+				"nl": "Zet de tijd dat Relais 2 automatisch uit gaat.\nBereik: 0 (uit), 1 (0,1s) - 65535 (6553,5s)\nStandaard: 0 (uit)"
+			},
+			"attr": {
+				"min": 0,
+				"max": 65535
+			},
+			"value": 0
+		},
+		{
+			"id": "switch_type",
+			"type": "dropdown",
+			"label": {
+				"en": "Switch Type",
+				"nl": "Schakelaar Type"
+			},
+			"hint": {
+				"en": "What type of switch is connected. (default = Momentary Switch)",
+				"nl": "Wat van soort schakelaar is aangesloten. (standaard = Puls Schakelaar"
+			},
+			"value": "1",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Momentary Switch",
+						"nl": "Puls Schakelaar"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Toggle Switch",
+						"nl": "Tuimel Schakelaar"
+					}
+				}
+			]
+		},
+		{
+			"id": "save_power_state",
+			"type": "checkbox",
+			"label": {
+				"en": "Save Power State",
+				"nl": "Onthoud Power Status"
+			},
+			"hint": {
+				"en": "If enabled, it will save the state it was in when power was disconnected",
+				"nl": "Als aan, zal hij de status onthouden waar het in was als het van de stroom word gehaald"
+			},
+			"value": true
+		}
+	]
+}

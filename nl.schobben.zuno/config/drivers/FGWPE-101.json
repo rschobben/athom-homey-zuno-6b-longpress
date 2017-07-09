@@ -1,0 +1,324 @@
+{
+	"id": "FGWPE-101",
+	"name": {
+		"en": "Wall Plug",
+		"nl": "Tussenstekker"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 1536,
+		"productId": [
+			4096
+		],
+		"learnmode": {
+			"image": "/drivers/FGWPE-101/assets/learnmode.svg",
+			"instruction": {
+				"en": "Insert the Wall Plug in a socket or press the button on your Fibaro Wall Plug three times",
+				"nl": "Stop de Tussenstekker in het stopcontact of druk driemaal op de knop op de Tussenstekker"
+			}
+		},
+		"associationGroups": [
+			3
+		]
+	},
+	"class": "socket",
+	"capabilities": [
+		"onoff",
+		"measure_power",
+		"meter_power"
+	],
+	"images": {
+		"large": "/drivers/FGWPE-101/assets/images/large.png",
+		"small": "/drivers/FGWPE-101/assets/images/small.png"
+	},
+	"settings": [
+		{
+			"id": "always_on",
+			"type": "checkbox",
+			"label": {
+				"en": "Always on",
+				"nl": "Altijd aan"
+			},
+			"value": false,
+			"hint": {
+				"en": "Once activated, will keep a connected device constantly on, will stop reacting to alarm frames and B-button push",
+				"nl": "Wanneer geactiveerd zal de plug constant aan zijn, en niet meer reageren op de B-knop en alarm frames"
+			}
+		},
+		{
+			"id": "save_state",
+			"type": "checkbox",
+			"label": {
+				"en": "Save Power-off State",
+				"nl": "Onthoud Stroom-eraf Status"
+			},
+			"hint": {
+				"en": "Saves its last state when power is disconnected",
+				"nl": "Onthoud zijn laatste status wanneer stroom eraf word gehaald"
+			},
+			"value": true
+		},
+		{
+			"id": "power_report",
+			"type": "number",
+			"label": {
+				"en": "Watt Report",
+				"nl": "Watt Verzending"
+			},
+			"hint": {
+				"en": "How much must the Wattage have changed (in percentage) before the value is being send immediatly. Range: 1 - 99, 100 = Not used",
+				"nl": "Hoeveel moet de Wattage zijn veranderd (in percentage) voor de waarde meteen word verzonden. Bereik: 1 - 99, 100 = Niet gebruikt"
+			},
+			"attr": {
+				"min": 1,
+				"max": 100
+			},
+			"value": 80
+		},
+		{
+			"id": "power_load_report",
+			"type": "number",
+			"label": {
+				"en": "Watt Report Threshold",
+				"nl": "Watt Verzending Drempel"
+			},
+			"hint": {
+				"en": "How much must the Wattage at least have changed (in percentage) before the value is being send on the interval. Range: 1 - 99, 100 = Not used",
+				"nl": "Hoeveel moet de Wattage minimaal zijn veranderd (in percentage) voor de waarde word verzonden op het interval. Bereik: 1 - 99, 100 = Niet gebruikt"
+			},
+			"attr": {
+				"min": 1,
+				"max": 100
+			},
+			"value": 15
+		},
+		{
+			"id": "power_report_interval",
+			"type": "number",
+			"label": {
+				"en": "Watt Report Interval",
+				"nl": "Watt Verzending Interval"
+			},
+			"hint": {
+				"en": "Set the interval (in seconds) that the Wattage is being send, if change is more then the specified threshold. Range: 1 - 254, 255 = Not being send",
+				"nl": "Zet op welk interval (in seconden) het vermogen word verzonden, als de waarde meer veranderd is dan de drempel. Bereik: 1 - 254, 255 = Niks verzonden"
+			},
+			"attr": {
+				"min": 1,
+				"max": 255
+			},
+			"value": 30
+		},
+		{
+			"id": "kwh_report_threshold",
+			"type": "number",
+			"label": {
+				"en": "kWh Report Threshold",
+				"nl": "kWh Verzending Drempel"
+			},
+			"hint": {
+				"en": "How much must the kWh at least have changed before the value is being send. Range: 0.01 - 2.45, 2.55 = Not send",
+				"nl": "Hoeveel moet de kWh minimaal zijn veranderd voor de waarde word verzonden. Bereik: 0.01 - 2.45, 2.55 = Niet verzonden"
+			},
+			"attr": {
+				"min": 0.01,
+				"max": 2.55,
+				"step": 0.01
+			},
+			"value": 0.1
+		},
+		{
+			"id": "watt_kwh_report_interval",
+			"type": "number",
+			"label": {
+				"en": "All Report Interval",
+				"nl": "Alles Verzending Interval"
+			},
+			"hint": {
+				"en": "How often will the Watt and kWh be send (in seconds), even when threshold and interval are not met. Range: 1 - 65534, 65535 = Not send",
+				"nl": "Hoe vaak word de Watt en kWh verzonden (in seconden), ook als de drempel en interval niet bereikt zijn. Bereik: 1 - 65534, 65535 = Niet verzonden"
+			},
+			"attr": {
+				"min": 1,
+				"max": 65535
+			},
+			"value": 3600
+		},
+		{
+			"id": "own_power",
+			"type": "checkbox",
+			"label": {
+				"en": "Include own power consumption",
+				"nl": "inclusief eigen verbruik"
+			},
+			"hint": {
+				"en": "Does the power consumption (kWh) of the module itself be added on the total amount?",
+				"nl": "Moet het energie verbruik (kWh) van de module zelf opgeteld worden bij de totale hoeveelheid?"
+			},
+			"value": false
+		},
+		{
+			"id": "led_ring_color_on",
+			"type": "dropdown",
+			"label": {
+				"en": "Color when on",
+				"nl": "Kleur wanneer aan"
+			},
+			"value": "0",
+			"hint": {
+				"en": "Defines the color of the LED ring in on state",
+				"nl": "De kleur van de LED ring wanneer aan"
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Changes in predefined steps according to power load",
+						"nl": "Verandert in stappen afhankelijk van het stroom verbuik"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Changes continuously according to power load using full spectrum of LED color",
+						"nl": "Verandert continu afhankelijk van het stroom verbruik"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "White",
+						"nl": "Wit"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Red",
+						"nl": "Rood"
+					}
+				},
+				{
+					"id": "4",
+					"label": {
+						"en": "Green",
+						"nl": "Groen"
+					}
+				},
+				{
+					"id": "5",
+					"label": {
+						"en": "Blue",
+						"nl": "Blauw"
+					}
+				},
+				{
+					"id": "6",
+					"label": {
+						"en": "Yellow",
+						"nl": "Geel"
+					}
+				},
+				{
+					"id": "7",
+					"label": {
+						"en": "Cyan",
+						"nl": "Cyaan"
+					}
+				},
+				{
+					"id": "8",
+					"label": {
+						"en": "Magenta",
+						"nl": "Magenta"
+					}
+				},
+				{
+					"id": "9",
+					"label": {
+						"en": "Off",
+						"nl": "Uit"
+					}
+				}
+			]
+		},
+		{
+			"id": "led_ring_color_off",
+			"type": "dropdown",
+			"label": {
+				"en": "Color when off",
+				"nl": "Kleur wanneer uit"
+			},
+			"value": "0",
+			"hint": {
+				"en": "Defines the color of the LED ring in off state",
+				"nl": "Kleur van de LED ring wanneer uit"
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "LED ring is illuminated with a color corresponding to the last measured power, before the controlled device was turned off",
+						"nl": "LED ring is verlicht met een kleur die bij het laatst gemeten stroom verbruik hoort"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "White",
+						"nl": "Wit"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Red",
+						"nl": "Rood"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Green",
+						"nl": "Groen"
+					}
+				},
+				{
+					"id": "4",
+					"label": {
+						"en": "Blue",
+						"nl": "Blauw"
+					}
+				},
+				{
+					"id": "5",
+					"label": {
+						"en": "Yellow",
+						"nl": "Geel"
+					}
+				},
+				{
+					"id": "6",
+					"label": {
+						"en": "Cyan",
+						"nl": "Cyaan"
+					}
+				},
+				{
+					"id": "7",
+					"label": {
+						"en": "Magenta",
+						"nl": "Magenta"
+					}
+				},
+				{
+					"id": "8",
+					"label": {
+						"en": "Off",
+						"nl": "Uit"
+					}
+				}
+			]
+		}
+	]
+}

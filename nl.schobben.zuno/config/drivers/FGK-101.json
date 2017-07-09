@@ -1,0 +1,128 @@
+{
+	"id": "FGK-101",
+	"name": {
+		"en": "Door/Window Sensor",
+		"nl": "Deur/Raam Sensor"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 1792,
+		"productId": [
+			4096,
+			8192,
+			12288
+		],
+		"learnmode": {
+			"image": "/drivers/FGK-101/assets/learnmode.svg",
+			"instruction": {
+				"en": "Press the button on your Fibaro Door/Window Sensor three times",
+				"nl": "Druk driemaal op de knop op de Fibaro Deur/Raam Sensor"
+			}
+		},
+		"associationGroups": [
+			3
+		]
+	},
+	"class": "sensor",
+	"capabilities": [
+		"alarm_contact",
+		"measure_temperature",
+		"measure_battery"
+	],
+	"images": {
+		"large": "/drivers/FGK-101/assets/images/large.png",
+		"small": "/drivers/FGK-101/assets/images/small.png"
+	},
+	"settings": [
+		{
+			"id": "input_alarm_cancellation_delay",
+			"type": "number",
+			"label": {
+				"en": "Input Alarm Cancellation Delay",
+				"nl": "Ingang Alarm Annulerings Vertraging"
+			},
+			"hint": {
+				"en": "Sets the time (in seconds) then the alarm of the input wel cancel.\nRange: 0 - 65535",
+				"nl": "Zet de tijd (in seconden) wanneer de ingangs alarm zal annuleren.\nBereik: 0 - 65535"
+			},
+			"attr": {
+				"min": 0,
+				"max": 65535
+			},
+			"value": 0
+		},
+		{
+			"id": "led_status",
+			"type": "checkbox",
+			"label": {
+				"en": "Status Change With LED",
+				"nl": "Status Veranderen Met LED"
+			},
+			"hint": {
+				"en": "Enable/Disable if the LED shows if the state changes.",
+				"nl": "Zet Aan/Uit of de LED de status verandering weergeeft."
+			},
+			"value": true
+		},
+		{
+			"id": "type_input",
+			"type": "dropdown",
+			"label": {
+				"en": "Switch Type Input",
+				"nl": "Schakelaar Type Ingang"
+			},
+			"hint": {
+				"en": "What type of switch is used on the input.",
+				"nl": "Wat van type schakelaar is gebruikt op de ingang"
+			},
+			"value": "0",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Normal Close",
+						"nl": "Normaal Gesloten (Verbreek)"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Normal Open",
+						"nl": "Normaal Open (Maak)"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Monostable Switch",
+						"nl": "Puls Schakelaar"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Toggle Switch",
+						"nl": "Tuimel Schakelaar"
+					}
+				}
+			]
+		},
+		{
+			"id": "temperature_measure_hystersis",
+			"type": "number",
+			"label": {
+				"en": "Temperature Measure Hystersis",
+				"nl": "Temperatuur Meet Hystersis"
+			},
+			"hint": {
+				"en": "Sets how many degree the temperature must change before being measured.\nRange: 0(0 degree) - 255(16 degree)\n0 = on every \"wakeup\" of the contact.",
+				"nl": "Zet hoeveel graden de temperatuur moet veranderen voor hij meet.\nBereik: 0(0 graden) - 255(16 graden)\n0 = bij elke \"wakeup\" van het contact."
+			},
+			"attr": {
+				"min": 0,
+				"max": 255
+			},
+			"value": 8
+		}
+	]
+}

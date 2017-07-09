@@ -1,0 +1,30 @@
+[
+	{
+		"id": "FGBS-001_i1",
+		"title": {
+			"en": "Input 1 !{{is open|is closed}}",
+			"nl": "Ingang 1 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGBS-001"
+			}
+		]
+	},
+	{
+		"id": "FGBS-001_i2",
+		"title": {
+			"en": "Input 2 !{{is open|is closed}}",
+			"nl": "Ingang 2 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=FGBS-001"
+			}
+		]
+	}
+]

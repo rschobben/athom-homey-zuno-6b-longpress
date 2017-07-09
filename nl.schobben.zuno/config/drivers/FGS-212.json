@@ -1,0 +1,120 @@
+{
+	"id": "FGS-212",
+	"name": {
+		"en": "Relay Switch 2",
+		"nl": "Relais Schakelaar 2"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 1026,
+		"productId": [
+			4098
+		],
+		"learnmode": {
+			"image": "/drivers/FGS-212/assets/learnmode.svg",
+			"instruction": {
+				"en": "Press the button on your Fibaro Relay Switch 2 three times",
+				"nl": "Druk driemaal op de knop op de Fibaro Relais Schakelaar 2"
+			}
+		},
+		"associationGroups": [
+			3
+		],
+		"multiChannelNodes": {
+			"2": {
+				"class": "socket",
+				"capabilities": [
+					"onoff"
+				],
+				"icon": "/drivers/FGS-212/assets/icon-2.svg",
+				"name": {
+					"en": "Input 2 (S2)",
+					"nl": "Ingang 2 (S2)"
+				},
+				"settings": []
+			}
+		}
+	},
+	"class": "socket",
+	"capabilities": [
+		"onoff"
+	],
+	"images": {
+		"large": "/drivers/FGS-212/assets/images/large.png",
+		"small": "/drivers/FGS-212/assets/images/small.png"
+	},
+	"settings": [
+		{
+			"id": "auto_off",
+			"type": "checkbox",
+			"label": {
+				"en": "Auto-off Behaviour",
+				"nl": "Automatisch uit gedrag"
+			},
+			"hint": {
+				"en": "If enabled pressing the switch for the second time will immediately turn off the relay, when disabled it will only turn off automatically.",
+				"nl": "Als geactiveerd zal het relais bij een tweede keer drukken meteen uitgaan, wanneer niet geactiveerd gaat het relais alleen automatisch uit. "
+			},
+			"value": false
+		},
+		{
+			"id": "auto_off_relay",
+			"type": "number",
+			"label": {
+				"en": "Auto-off Relay",
+				"nl": "Automatisch uit Relais"
+			},
+			"hint": {
+				"en": "Set the time Relay will turn off automatically.\nRange: 0 (off), 1 (0.1s) - 65535 (2,5s)\nDefault: 0 (off)",
+				"nl": "Zet de tijd dat Relais automatisch uit gaat.\nBereik: 0 (uit), 1 (0,1s) - 65535 (6553,5s)\nStandaard: 0 (uit)"
+			},
+			"attr": {
+				"min": 0,
+				"max": 65535
+			},
+			"value": 0
+		},
+		{
+			"id": "switch_type",
+			"type": "dropdown",
+			"label": {
+				"en": "Switch Type",
+				"nl": "Schakelaar Type"
+			},
+			"hint": {
+				"en": "What type of switch is connected. (default = Momentary Switch)",
+				"nl": "Wat van soort schakelaar is aangesloten. (standaard = Puls Schakelaar"
+			},
+			"value": "1",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Momentary Switch",
+						"nl": "Puls Schakelaar"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Toggle Switch",
+						"nl": "Tuimel Schakelaar"
+					}
+				}
+			]
+		},
+		{
+			"id": "save_power_state",
+			"type": "checkbox",
+			"label": {
+				"en": "Save Power State",
+				"nl": "Onthoud Power Status"
+			},
+			"hint": {
+				"en": "If enabled, it will save the state it was in when power was disconnected",
+				"nl": "Als aan, zal hij de status onthouden waar het in was als het van de stroom word gehaald"
+			},
+			"value": true
+		}
+	]
+}

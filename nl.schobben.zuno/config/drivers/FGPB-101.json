@@ -1,0 +1,33 @@
+{
+	"id": "FGPB-101",
+	"name": {
+		"en": "Push Button",
+		"nl": "Druk Knop"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 3841,
+		"productId": [
+			4096
+		],
+		"learnmode": {
+			"image": "/drivers/FGPB-101/assets/learnmode.svg",
+			"instruction": {
+				"en": "Push the Fibaro Push Button six times",
+				"nl": "Druk zesmaal op de Fibaro Druk Knop"
+			}
+		},
+		"associationGroups": [
+			1
+		],
+		"wakeUpInterval": 86400
+	},
+	"class": "sensor",
+	"capabilities": [
+		"measure_battery"
+	],
+	"images": {
+		"large": "/drivers/FGPB-101/assets/images/large.png",
+		"small": "/drivers/FGPB-101/assets/images/small.png"
+	}
+}

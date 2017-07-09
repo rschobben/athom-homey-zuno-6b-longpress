@@ -1,0 +1,448 @@
+{
+	"id": "FGFS-101",
+	"name": {
+		"en": "Flood Sensor",
+		"nl": "Vloedsensor"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 2816,
+		"productId": [
+			4097,
+			8193,
+			12289
+		],
+		"learnmode": {
+			"image": "/drivers/FGFS-101/assets/learnmode.svg",
+			"instruction": {
+				"en": "Press the button on your Fibaro Flood Sensor three times",
+				"nl": "Druk driemaal op de knop op de Fibaro Vloedsensor"
+			}
+		},
+		"associationGroups": [
+			3
+		]
+	},
+	"class": "sensor",
+	"capabilities": [
+		"alarm_water",
+		"measure_temperature",
+		"alarm_tamper",
+		"measure_battery"
+	],
+	"images": {
+		"large": "/drivers/FGFS-101/assets/images/large.png",
+		"small": "/drivers/FGFS-101/assets/images/small.png"
+	},
+	"settings": [
+		{
+			"id": "alarm_cancellation",
+			"type": "number",
+			"label": {
+				"en": "Alarm Cancellation Time",
+				"nl": "Alarm Annulering Tijd"
+			},
+			"hint": {
+				"en": "Sets the time (in seconds) the flood alarm wel cancel.\n",
+				"nl": "Zet de tijd (in seconden) dat de Vloedsensor annuleert.\n"
+			},
+			"attr": {
+				"min": 0,
+				"max": 3600
+			},
+			"value": 0
+		},
+		{
+			"id": "flood_signal",
+			"type": "dropdown",
+			"label": {
+				"en": "Flood signal",
+				"nl": "Overstromings signaal"
+			},
+			"hint": {
+				"en": "Parameter allows for LED indicator and acoustic alarm deactivation in case of flooding detection",
+				"nl": "Deze parameter bepaalt welke visuele en akoestische alarmen af gaan bij water detectie"
+			},
+			"value": "3",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "None",
+						"nl": "Geen"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Visual",
+						"nl": "Visueel"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Acoustic",
+						"nl": "Akoestisch"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Acoustic and Visual",
+						"nl": "Akoestisch en Visueel"
+					}
+				}
+			]
+		},
+		{
+			"id": "alarm_cancel_status",
+			"type": "checkbox",
+			"label": {
+				"en": "Alarm Cancellation Active",
+				"nl": "Alarm Annuleering Actief"
+			},
+			"hint": {
+				"en": "Enable or Disable the flood alarm cancellation",
+				"nl": "Zet de vloed alarm annulering Aan of Uit"
+			},
+			"value": true
+		},
+		{
+			"id": "temperature_measure_interval",
+			"type": "number",
+			"label": {
+				"en": "Temperature Measure Interval",
+				"nl": "Temperatuur Meting Interval"
+			},
+			"hint": {
+				"en": "Sets the interval (in seconds) that the temperature is being measured.\nRange: 1 - 65535",
+				"nl": "Zet de interval (in seconden) dat de temperatuur wordt gemeten.\nBereik: 1 - 65535"
+			},
+			"attr": {
+				"min": 1,
+				"max": 65535
+			},
+			"value": 300
+		},
+		{
+			"id": "temperature_measure_hysteresis",
+			"type": "number",
+			"label": {
+				"en": "Temperature Measure Hysteresis",
+				"nl": "Temperatuur Meting Hysteresis"
+			},
+			"hint": {
+				"en": "Sets the amount of degree* the temperature must change before being measured.\n* - 100 = 1 degree difference\nRange: 1 - 1000",
+				"nl": "Zet de hoeveelheid graden* de temperatuur veranderen moet voor het meet.\n* - 100 = 1 graden verschil\nBereik: 1 - 65535"
+			},
+			"attr": {
+				"min": 1,
+				"max": 1000
+			},
+			"value": 50
+		},
+		{
+			"id": "low_temperature_treshold",
+			"type": "number",
+			"label": {
+				"en": "Low Temperature Alarm, Treshold",
+				"nl": "Temperatuur Laag Alarm, Drempel"
+			},
+			"hint": {
+				"en": "Sets the amount of degree* the low temperature alarm triggers.\n* - 100 = 1 degree\nRange: -10000 - 10000",
+				"nl": "Zet de hoeveelheid graden* het laag temperatuur alarm activeerd.\n* - 100 = 1 graden\nBereik: -10000 - 10000"
+			},
+			"attr": {
+				"min": -10000,
+				"max": 10000
+			},
+			"value": 1500
+		},
+		{
+			"id": "high_temperature_treshold",
+			"type": "number",
+			"label": {
+				"en": "High Temperature Alarm, Treshold",
+				"nl": "Temperatuur Hoog Alarm, Drempel"
+			},
+			"hint": {
+				"en": "Sets the amount of degree* the high temperature alarm triggers.\n* - 100 = 1 degree\nRange: -10000 - 10000",
+				"nl": "Zet de hoeveelheid graden* het hoog temperatuur alarm activeerd.\n* - 100 = 1 graden\nBereik: -10000 - 10000"
+			},
+			"attr": {
+				"min": -10000,
+				"max": 10000
+			},
+			"value": 3500
+		},
+		{
+			"id": "low_temperature_led",
+			"type": "dropdown",
+			"label": {
+				"en": "Low Temperature LED",
+				"nl": "Temperatuur Laag LED"
+			},
+			"hint": {
+				"en": "Sets which colour the LED will be when temperature is below then Low Temperature Alarm Treshold",
+				"nl": "Zet welke kleur de LED is wanneer de temperuur beneden de Temperatuur Laag Alarm Drempel is"
+			},
+			"value": "255",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "LED Off",
+						"nl": "LED Uit"
+					}
+				},
+				{
+					"id": "16711680",
+					"label": {
+						"en": "Red",
+						"nl": "Rood"
+					}
+				},
+				{
+					"id": "65280",
+					"label": {
+						"en": "Green",
+						"nl": "Groen"
+					}
+				},
+				{
+					"id": "255",
+					"label": {
+						"en": "Blue",
+						"nl": "Blauw"
+					}
+				},
+				{
+					"id": "16776960",
+					"label": {
+						"en": "Yellow",
+						"nl": "Geel"
+					}
+				},
+				{
+					"id": "65535",
+					"label": {
+						"en": "Cyan",
+						"nl": "Cyaan"
+					}
+				},
+				{
+					"id": "16750848",
+					"label": {
+						"en": "Orange",
+						"nl": "Oranje"
+					}
+				},
+				{
+					"id": "16777215",
+					"label": {
+						"en": "White",
+						"nl": "Wit"
+					}
+				}
+			]
+		},
+		{
+			"id": "high_temperature_led",
+			"type": "dropdown",
+			"label": {
+				"en": "Type of alarm frame sent to 1st association group devices (smoke alarm)",
+				"nl": "Type alarm frame dat naar alle apparaten in eerste associatie group wordt gestuurd (rook alarm)"
+			},
+			"hint": {
+				"en": "Allows for choosing a command class used in 1st association group, available settings: 0, 255",
+				"nl": "Kies een command class welke gebruikt wordt in de eerste associatie groep"
+			},
+			"value": "255",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "LED Off",
+						"nl": "LED Uit"
+					}
+				},
+				{
+					"id": "16711680",
+					"label": {
+						"en": "Red",
+						"nl": "Rood"
+					}
+				},
+				{
+					"id": "65280",
+					"label": {
+						"en": "Green",
+						"nl": "Groen"
+					}
+				},
+				{
+					"id": "255",
+					"label": {
+						"en": "Blue",
+						"nl": "Blauw"
+					}
+				},
+				{
+					"id": "16776960",
+					"label": {
+						"en": "Yellow",
+						"nl": "Geel"
+					}
+				},
+				{
+					"id": "65535",
+					"label": {
+						"en": "Cyan",
+						"nl": "Cyaan"
+					}
+				},
+				{
+					"id": "16750848",
+					"label": {
+						"en": "Orange",
+						"nl": "Oranje"
+					}
+				},
+				{
+					"id": "16777215",
+					"label": {
+						"en": "White",
+						"nl": "Wit"
+					}
+				}
+			]
+		},
+		{
+			"id": "led_indication",
+			"type": "dropdown",
+			"label": {
+				"en": "LED Temperature Indication",
+				"nl": "LED Temperatuur Weergave"
+			},
+			"hint": {
+				"en": "Choose if the LED indicates the temperature",
+				"nl": "Kies of de LED de temperatuur weergeeft"
+			},
+			"value": "2",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "LED Doesn't Indicate",
+						"nl": "LED Geeft Niet Weer"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "LED Blinks Every Measurement",
+						"nl": "LED Knippert Bij Elke Meting"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "LED Always On (When Constantly Powered)",
+						"nl": "LED Geeft Altijd Weer (Onder Constante Spanning"
+					}
+				}
+			]
+		},
+		{
+			"id": "temperature_offset",
+			"type": "number",
+			"label": {
+				"en": "Temperature Offset",
+				"nl": "Temperatuur Compensatie"
+			},
+			"hint": {
+				"en": "Sets the amount of degree* the temperature need to be offset.\n* - 100 = 1 degree\nRange: -10000 - 10000",
+				"nl": "Zet hoeveel graden* het temperatuur gecompenseerd moet worden.\n* - 100 = 1 graden\nBereik: -10000 - 10000"
+			},
+			"attr": {
+				"min": -10000,
+				"max": 10000
+			},
+			"value": 0
+		},
+		{
+			"id": "tamper_alarm",
+			"type": "dropdown",
+			"label": {
+				"en": "Tamper Alarm",
+				"nl": "Sabotage Alarm"
+			},
+			"hint": {
+				"en": "Choose the way Tamper Alarm is being send",
+				"nl": "Kies de manier waarop het Sabotage Alarm word verzonden"
+			},
+			"value": "2",
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Tamper Alarm Off",
+						"nl": "Sabotage Alarm Uit"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Tamper Alarm By TMP Button",
+						"nl": "Sabotage Alarm Bij drukken Knop"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Tamper Alarm On Movement",
+						"nl": "Sabotage Alarm Bij Beweging"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Both Options",
+						"nl": "Beide Opties"
+					}
+				}
+			]
+		},
+		{
+			"id": "alarm_duration",
+			"type": "number",
+			"label": {
+				"en": "Visual and Akoestic Alarm Duration",
+				"nl": "Visueel en Akoestische Alarm Duur"
+			},
+			"hint": {
+				"en": "Sets the time after how many seconds the alarm becomes silent.\n0 = immediately\nRange: 0 - 65535",
+				"nl": "Zet de tijd na hoeveel seconden het alarm stil word.\n0 = Meteen\nBereik: 0 - 65535"
+			},
+			"attr": {
+				"min": 0,
+				"max": 65535
+			},
+			"value": 0
+		},
+		{
+			"id": "flood_sensor",
+			"type": "checkbox",
+			"label": {
+				"en": "Flood Sensor",
+				"nl": "Vloedsensor"
+			},
+			"hint": {
+				"en": "Enable or Disable the flood sensor",
+				"nl": "Zet de Vloedsensor Aan of Uit"
+			},
+			"value": true
+		}
+	]
+}

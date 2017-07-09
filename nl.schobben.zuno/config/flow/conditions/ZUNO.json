@@ -1,0 +1,170 @@
+[
+	{
+		"id": "ZUNO_scene1",
+		"title": {
+			"en": "Input 1 !{{is open|is closed}}",
+			"nl": "Ingang 1 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene2",
+		"title": {
+			"en": "Input 2 !{{is open|is closed}}",
+			"nl": "Ingang 2 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene3",
+		"title": {
+			"en": "Input 3 !{{is open|is closed}}",
+			"nl": "Ingang 3 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene4",
+		"title": {
+			"en": "Input 4 !{{is open|is closed}}",
+			"nl": "Ingang 4 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene5",
+		"title": {
+			"en": "Input 5 !{{is open|is closed}}",
+			"nl": "Ingang 5 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene6",
+		"title": {
+			"en": "Input 6 !{{is open|is closed}}",
+			"nl": "Ingang 6 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene7",
+		"title": {
+			"en": "Input 7 !{{is open|is closed}}",
+			"nl": "Ingang 7 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene8",
+		"title": {
+			"en": "Input 8 !{{is open|is closed}}",
+			"nl": "Ingang 8 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene9",
+		"title": {
+			"en": "Input 9 !{{is open|is closed}}",
+			"nl": "Ingang 9 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene10",
+		"title": {
+			"en": "Input 10 !{{is open|is closed}}",
+			"nl": "Ingang 10 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene11",
+		"title": {
+			"en": "Input 11 !{{is open|is closed}}",
+			"nl": "Ingang 11 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	},
+	{
+		"id": "ZUNO_scene12",
+		"title": {
+			"en": "Input 12 !{{is open|is closed}}",
+			"nl": "Ingang 12 !{{is geopend|is gesloten}}"
+		},
+		"args": [
+			{
+				"name": "device",
+				"type": "device",
+				"filter": "driver_id=ZUNO"
+			}
+		]
+	}
+]

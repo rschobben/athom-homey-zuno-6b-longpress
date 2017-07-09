@@ -1,0 +1,209 @@
+{
+	"id": "FGBS-001",
+	"name": {
+		"en": "Universal Binary Sensor"
+	},
+	"zwave": {
+		"manufacturerId": 271,
+		"productTypeId": 1281,
+		"productId": [
+			4098,
+			265
+		],
+		"learnmode": {
+			"image": "/drivers/FGBS-001/assets/learnmode.svg",
+			"instruction": {
+				"en": "Press the button on your Fibaro Universal Binary Sensor three times",
+				"nl": "Druk driemaal op de knop op de Fibaro Universal Binary Sensor"
+			}
+		},
+		"associationGroups": [
+			3
+		],
+		"defaultConfiguration": [
+			{
+				"id": 12,
+				"size": 1,
+				"value": 8
+			},
+			{
+				"id": 14,
+				"size": 1,
+				"value": 1
+			}
+		]
+	},
+	"class": "sensor",
+	"capabilities": [
+		"alarm_generic.contact1",
+		"alarm_generic.contact2",
+		"alarm_generic.contact3",
+		"alarm_generic.contact4",
+		"alarm_generic.contact5",
+		"alarm_generic.contact6"
+	],
+	"capabilitiesOptions": {
+		"alarm_generic.contact1": {
+			"title": {
+				"en": "Input 1",
+				"nl": "Ingang 1"
+			}
+		},
+		"alarm_generic.contact2": {
+			"title": {
+				"en": "Input 2",
+				"nl": "Ingang 2"
+			}
+		},
+		"alarm_generic.contact3": {
+			"title": {
+				"en": "Input 3",
+				"nl": "Ingang 3"
+			}
+		},
+		"alarm_generic.contact4": {
+			"title": {
+				"en": "Input 4",
+				"nl": "Ingang 4"
+			}
+		},
+		"alarm_generic.contact5": {
+			"title": {
+				"en": "Input 5",
+				"nl": "Ingang 5"
+			}
+		},
+		"alarm_generic.contact6": {
+			"title": {
+				"en": "Input 6",
+				"nl": "Ingang 6"
+			}
+		}
+	},
+	"mobile": {
+		"components": [
+			{
+				"id": "icon",
+				"capabilities": []
+			},
+			{
+				"id": "sensor",
+				"capabilities": [
+					"alarm_generic.contact1",
+					"alarm_generic.contact2",
+					"alarm_generic.contact3",
+					"alarm_generic.contact4",
+					"alarm_generic.contact5",
+					"alarm_generic.contact6"
+				],
+				"options": {
+					"icons": {
+						"alarm_generic.contact1": "/drivers/FGBS-001/assets/switch.svg",
+						"alarm_generic.contact2": "/drivers/FGBS-001/assets/switch.svg"
+					},
+					"alarm_generic.contact1": {
+						"noblink": true,
+						"label": {
+							"true": {
+								"en": "Open",
+								"nl": "Open"
+							},
+							"false": {
+								"en": "Closed",
+								"nl": "Gesloten"
+							}
+						}
+					},
+					"alarm_generic.contact2": {
+						"noblink": true,
+						"label": {
+							"true": {
+								"en": "Open",
+								"nl": "Open"
+							},
+							"false": {
+								"en": "Closed",
+								"nl": "Gesloten"
+							}
+						}
+					},
+					"alarm_generic.contact3": {
+						"noblink": true,
+						"label": {
+							"true": {
+								"en": "Open",
+								"nl": "Open"
+							},
+							"false": {
+								"en": "Closed",
+								"nl": "Gesloten"
+							}
+						}
+					},
+					"alarm_generic.contact4": {
+						"noblink": true,
+						"label": {
+							"true": {
+								"en": "Open",
+								"nl": "Open"
+							},
+							"false": {
+								"en": "Closed",
+								"nl": "Gesloten"
+							}
+						}
+					},
+					"alarm_generic.contact5": {
+						"noblink": true,
+						"label": {
+							"true": {
+								"en": "Open",
+								"nl": "Open"
+							},
+							"false": {
+								"en": "Closed",
+								"nl": "Gesloten"
+							}
+						}
+					},
+					"alarm_generic.contact6": {
+						"noblink": true,
+						"label": {
+							"true": {
+								"en": "Open",
+								"nl": "Open"
+							},
+							"false": {
+								"en": "Closed",
+								"nl": "Gesloten"
+							}
+						}
+					}
+				}
+			}
+		]
+	},
+	"images": {
+		"large": "/drivers/FGBS-001/assets/images/large.png",
+		"small": "/drivers/FGBS-001/assets/images/small.png"
+	},
+	"settings": [
+		{
+			"id": 10,
+			"type": "number",
+			"label": {
+				"en": "Temperature Measure Interval",
+				"nl": "Temperatuur Meting Interval"
+			},
+			"value": 20,
+			"attr": {
+				"min": 1,
+				"max": 255
+			},
+			"hint": {
+				"en": "Determine on what interval (in seconds) the temperature will be measured on all temperature sensors. Range: 1 - 255",
+				"nl": "Bepaal het interval (in seconden) wanneer de temperaturen gemeten worden op alle sensoren. Bereik: 1 - 255"
+			}
+		}
+	]
+}
